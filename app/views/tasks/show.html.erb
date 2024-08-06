@@ -1,0 +1,31 @@
+<div class="container m-5 d-flex row justify-content align-items-center">
+
+  <div class="text-center mt-5">
+    <h2>My Task</h2>
+
+    <p><strong><%= @task.name %></strong></p>
+
+    <p><%= @task.details %></p>
+
+      <% if @task.completed %>
+        <i class="fa-regular fa-circle-check fa-beat" style="color: #63E6BE;"></i>
+      <% else %>
+        <i class="fa-solid fa-spinner fa-spin"></i>
+      <% end %>
+  </div>
+
+  <div class="text-center">
+    <button class="form-group btn btn-primary mt-3">
+      <%= link_to "Tasks List", tasks_path, class:"text-decoration-none text-white" %>
+    </button>
+
+    <button class="form-group btn btn-primary text-white mt-3">
+      <%= link_to "Destroy #{@task.name}", task_path(@task), data: {turbo_method: :delete, turbo_confirm: 'Are you sure brooo ??'}, class:"text-decoration-none text-white" %>
+    </button>
+
+    <button class="form-group btn btn-primary text-white mt-3">
+      <%= link_to 'Edit a task', edit_task_path(@task), class:"text-decoration-none text-white" %>
+    </button>
+  </div>
+
+</div>
